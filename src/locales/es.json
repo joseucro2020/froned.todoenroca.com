@@ -1,0 +1,60 @@
+{
+    "hello": "Hola",
+    "HeaderTop":
+    {
+        "MyAccount": "Mi Cuenta",
+        "Register": "Registrar",
+        "Login": "Acceso",
+        "WishList": "Lista de deseos",
+        "Checkout": "Checkout"
+    },
+    "HeaderCenter":{
+        "Keywordhere": "Encuentra lo que necesitas..",
+        "AllCategories": "Todas las categorias",
+        "Mycart" : "Mi carrito",
+        "ViewCart" : "Ver carrito",
+        "Checkout" : "Checkout"
+    },
+    "HeaderBottom":{
+        "AllCategories": "Todas las categorias"        
+    },
+    "Main":{
+        "Slider":{
+            "Deals":{
+                "Dealsofthedays":"Ofertas del día"
+            },
+            "Featured":{
+                "Featuredproducts":"Productos Destacados"                
+            },
+            "CategoriesProducts":{
+                "ViewAll" : "Ver todo"
+            }
+        },
+        "Tags":{
+            "GoQuicklyto": "Ir rápido a"
+        },
+        "Policy":{
+            "onlinesupport24/24" : "Soporte en línea 24/24",
+            "LOWESTPRICEGUARANTEE" : "GARANTÍA DE PRECIO MÁS BAJO",
+            "moneybackguarantee" : "Garantía de reembolso",
+            "FreeShippingworldwide" : "Envío gratuito a nivel mundial"
+        },
+        "Module":{
+            "Topcollections" : "Top colecciones"
+        }
+    },
+    "Footer":{
+        "Middle":{
+            "DownloadAPP" : "Descargar aplicación",
+            "FollowUs" : "Síganos",
+            "ContactInfo" : "Datos de contacto",
+            "MyAccount" : "Mi cuenta",
+            "Information" : "Información",
+            "Services" : "Servicios"
+        },
+        "Bottom":{
+            "Designedby" : "Diseñada por"
+        }
+
+    }
+}
