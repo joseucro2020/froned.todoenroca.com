@@ -17,7 +17,7 @@ const { allCategories, optionCategories, search } = useCategories();
           <div class="logo">
             <a href="index.html"
               ><img
-                src="../../assets/image/catalog/logo5.png"
+                src="../../assets/image/catalog/logo6.png"
                 title="Your Store"
                 alt="Your Store"
             /></a>

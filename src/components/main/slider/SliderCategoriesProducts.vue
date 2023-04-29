@@ -1,19 +1,20 @@
 <script setup>
-import { ref } from "vue";
-
 import { useI18n } from "vue-i18n";
+import useCategoriesProducts from "@/composables/useCategoriesProducts";
 const { t } = useI18n();
+
+const { allCategoriesProducts } = useCategoriesProducts();
 </script>
 
 <template>
-  <div class="module so-extraslider-ltr extra-layout4 cus1">
+  <div class="module so-extraslider-ltr extra-layout4 cus1" v-for="categoryproducts in allCategoriesProducts" :key="categoryproducts.id">
     <div class="form-group col-pre">
-      <div class="m-head">The best of smartphone<a href="#">{{t("Main.Slider.CategoriesProducts.ViewAll")}}</a></div>
+      <div class="m-head">{{ categoryproducts.name }}<a href="#">{{t("Main.Slider.CategoriesProducts.ViewAll")}}</a></div>
     </div>
     <div class="modcontent">
       <div class="so-extraslider">
         <div
-          class="yt-content-slider extraslider-inner products-list"
+          class="yt-content-slider-categories extraslider-inner products-list"
           data-rtl="yes"
           data-pagination="no"
           data-autoplay="no"

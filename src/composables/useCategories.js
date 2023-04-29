@@ -1,26 +1,36 @@
-import { ref, onMounted } from 'vue'
-import axios from '@/services'
+import {
+  ref,
+  onMounted,
+  onUpdated
+} from "vue";
+import axios from "@/services";
+import { hoverMegaMenu, renderWidthSubmenu } from "@/js/themejs/so_megamenu";
 
 const useCategories = () => {
-    const allCategories = ref({});
-    const optionCategories = ref(0)
-    const search = ref(null)
+  const allCategories = ref({});
+  const optionCategories = ref(0);
+  const search = ref(null);
 
-    const categories = () => {
-      axios.get('api/categories_filter_menu').then((resp) => {
-        allCategories.value = resp.data
-      })
-    }
-    
-    onMounted( () => {
-      categories();
-    })
+  const categories = async () => {
+    await axios.get("api/categories_filter_menu").then((resp) => {
+      allCategories.value = resp.data;
+    });
+  };  
 
-    return {
-        allCategories,
-        optionCategories,
-        search
-    }
-}
+  onMounted(() => {
+    categories();
+  });
 
-export default useCategories
+  onUpdated(() => {
+    hoverMegaMenu();
+    renderWidthSubmenu();
+  });
+
+  return {
+    allCategories,
+    optionCategories,
+    search,
+  };
+};
+
+export default useCategories;

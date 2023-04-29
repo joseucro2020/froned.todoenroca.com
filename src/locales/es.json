@@ -19,6 +19,9 @@
         "AllCategories": "Todas las categorias"        
     },
     "Main":{
+        "Quickview": "Vista rápida",
+        "AddtoCart": "Añadir a la Cesta",
+        "AddtoWishList":"Añadir a la lista de deseos",
         "Slider":{
             "Deals":{
                 "Dealsofthedays":"Ofertas del día"
@@ -37,7 +40,7 @@
             "onlinesupport24/24" : "Soporte en línea 24/24",
             "LOWESTPRICEGUARANTEE" : "GARANTÍA DE PRECIO MÁS BAJO",
             "moneybackguarantee" : "Garantía de reembolso",
-            "FreeShippingworldwide" : "Envío gratuito a nivel mundial"
+            "FreeShippingworldwide" : "Envío gratuito a nivel nacional"
         },
         "Module":{
             "Topcollections" : "Top colecciones"

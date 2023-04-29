@@ -1,8 +1,9 @@
 <script setup>
-import { ref } from "vue";
-
 import { useI18n } from "vue-i18n";
+import useOffers from "@/composables/useOffers";
+//import "@/js/themejs/homepage.js";
 const { t } = useI18n();
+const { allOffers } = useOffers();
 </script>
 
 <template>
@@ -11,7 +12,7 @@ const { t } = useI18n();
     <div class="modcontent">
       <div class="so-deal style2">
         <div
-          class="extraslider-inner products-list yt-content-slider"
+          class="extraslider-inner products-list yt-content-slider-offers"
           data-rtl="yes"
           data-autoplay="no"
           data-autoheight="no"
@@ -29,13 +30,13 @@ const { t } = useI18n();
           data-loop="no"
           data-hoverpause="yes"
         >
-          <div class="item product-layout product-grid2">
+          <div class="item product-layout product-grid2" v-for="offer in allOffers" :key="offer.id">
             <div class="product-thumb transition product-item-container">
               <div class="left-block">
                 <div class="product-image-container">
                   <div class="image">
                     <div class="box-label">
-                      <span class="label label-sale">-13%</span>
+                      <span class="label label-sale">-{{offer.offer.active_offer.amount}}{{ offer.offer.active_offer.discount_type == 2 ? "%":"$" }}</span>
                     </div>
                     <a href="#" target="_self" title="product">
                       <img
@@ -50,9 +51,9 @@ const { t } = useI18n();
                     <a
                       class="iframe-link btn-button quickview quickview_handler visible-lg"
                       href="quickview.html"
-                      title="Quick view"
+                      :title="$t('Main.Quickview')"
                       data-fancybox-type="iframe"
-                      ><i class="fa fa-eye"></i><span>Quick view</span></a
+                      ><i class="fa fa-eye"></i><span>{{t("Main.Quickview")}}</span></a
                     >
                   </div>
                   <!--end quickview-->
@@ -61,8 +62,8 @@ const { t } = useI18n();
               <div class="right-block">
                 <div class="caption">
                   <h4>
-                    <a href="#" target="_self" title="Ground round enim"
-                      >Ground round enim</a
+                    <a href="#" target="_self" :title="offer.name"
+                      >{{ offer.name }}</a
                     >
                   </h4>
                   <div class="rating">
@@ -84,8 +85,7 @@ const { t } = useI18n();
                   </div>
 
                   <p class="desc">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                    sed do eiusmod tempor incididunt ut labore..
+                    {{ offer.description }}
                   </p>
                   <p class="price">
                     <span class="price-new">$66.00</span>
@@ -94,22 +94,22 @@ const { t } = useI18n();
                   <div class="button-group">
                     <button
                       class="btn-button wishlist"
-                      title="Add to Cart"
+                      :title="$t('Main.AddtoCart')"
                       type="button"
                       onclick="cart.add('69');"
                     >
                       <i class="fa fa-shopping-cart"></i>
-                      <span>Add to Cart</span>
+                      <span>{{ $t('Main.AddtoCart') }}</span>
                     </button>
                     <button
                       class="btn-button wishlist"
                       type="button"
-                      title="Add to Wish List"
+                      :title="$t('Main.AddtoWishList')"
                       onclick="wishlist.add('69');"
                     >
-                      <i class="fa fa-heart"></i><span>Add to Wish List</span>
+                      <i class="fa fa-heart"></i><span>{{ $t('Main.AddtoWishList') }}</span>
                     </button>
-                    <button
+                    <!--<button
                       class="btn-button compare"
                       type="button"
                       title="Compare this Product"
@@ -117,7 +117,7 @@ const { t } = useI18n();
                     >
                       <i class="fa fa-refresh"></i
                       ><span>Compare this Product</span>
-                    </button>
+                    </button>-->
                   </div>
                   <!--countdown box-->
                   <div class="item-time-w">
@@ -132,212 +132,7 @@ const { t } = useI18n();
               </div>
             </div>
           </div>
-          <div class="item product-layout product-grid2">
-            <div class="product-thumb transition product-item-container">
-              <div class="left-block">
-                <div class="product-image-container">
-                  <div class="image">
-                    <div class="box-label">
-                      <span class="label label-sale">-10%</span>
-                    </div>
-                    <a href="#" target="_self" title="product">
-                      <img
-                        src="../../../assets/image/catalog/demo/product/index2/330/2.jpg"
-                        alt="Hofficia chicken"
-                        class="img-responsive"
-                      />
-                    </a>
-                  </div>
-                  <!--quickview-->
-                  <div class="so-quickview">
-                    <a
-                      class="iframe-link btn-button quickview quickview_handler visible-lg"
-                      href="quickview.html"
-                      title="Quick view"
-                      data-fancybox-type="iframe"
-                      ><i class="fa fa-eye"></i><span>Quick view</span></a
-                    >
-                  </div>
-                  <!--end quickview-->
-                </div>
-              </div>
-              <div class="right-block">
-                <div class="caption">
-                  <h4>
-                    <a href="#" target="_self" title="Hofficia chicken"
-                      >Hofficia chicken</a
-                    >
-                  </h4>
-                  <div class="rating">
-                    <span class="fa fa-stack"
-                      ><i class="fa fa-star fa-stack-2x"></i
-                    ></span>
-                    <span class="fa fa-stack"
-                      ><i class="fa fa-star fa-stack-2x"></i
-                    ></span>
-                    <span class="fa fa-stack"
-                      ><i class="fa fa-star fa-stack-2x"></i
-                    ></span>
-                    <span class="fa fa-stack"
-                      ><i class="fa fa-star fa-stack-2x"></i
-                    ></span>
-                    <span class="fa fa-stack"
-                      ><i class="fa fa-star fa-stack-2x"></i
-                    ></span>
-                  </div>
-
-                  <p class="desc">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                    sed do eiusmod tempor incididunt ut labore..
-                  </p>
-                  <p class="price">
-                    <span class="price-new">$90.00</span>
-                    <span class="price-old">$100.00</span>
-                  </p>
-                  <div class="button-group">
-                    <button
-                      class="addToCart"
-                      title="Add to Cart"
-                      type="button"
-                      onclick="cart.add('69');"
-                    >
-                      <i class="fa fa-shopping-cart"></i>
-                      <span>Add to Cart</span>
-                    </button>
-                    <button
-                      class="btn-button wishlist"
-                      type="button"
-                      title="Add to Wish List"
-                      onclick="wishlist.add('69');"
-                    >
-                      <i class="fa fa-heart"></i><span>Add to Wish List</span>
-                    </button>
-                    <button
-                      class="btn-button compare"
-                      type="button"
-                      title="Compare this Product"
-                      onclick="compare.add('69');"
-                    >
-                      <i class="fa fa-refresh"></i
-                      ><span>Compare this Product</span>
-                    </button>
-                  </div>
-                  <!--countdown box-->
-                  <div class="item-time-w">
-                    <div class="item-time">
-                      <div class="item-timer">
-                        <div class="defaultCountdown-30"></div>
-                      </div>
-                    </div>
-                  </div>
-                  <!--end countdown box-->
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="item product-layout product-grid2">
-            <div class="product-thumb transition product-item-container">
-              <div class="left-block">
-                <div class="product-image-container">
-                  <div class="image">
-                    <div class="box-label">
-                      <span class="label label-sale">-20%</span>
-                    </div>
-                    <a href="#" target="_self" title="product">
-                      <img
-                        src="../../../assets/image/catalog/demo/product/index2/330/3.jpg"
-                        alt="Lastrami deserunt"
-                        class="img-responsive"
-                      />
-                    </a>
-                  </div>
-                  <!--quickview-->
-                  <div class="so-quickview">
-                    <a
-                      class="iframe-link btn-button quickview quickview_handler visible-lg"
-                      href="quickview.html"
-                      title="Quick view"
-                      data-fancybox-type="iframe"
-                      ><i class="fa fa-eye"></i><span>Quick view</span></a
-                    >
-                  </div>
-                  <!--end quickview-->
-                </div>
-              </div>
-              <div class="right-block">
-                <div class="caption">
-                  <h4>
-                    <a href="#" target="_self" title="Lastrami deserunt"
-                      >Lastrami deserunt</a
-                    >
-                  </h4>
-                  <div class="rating">
-                    <span class="fa fa-stack"
-                      ><i class="fa fa-star fa-stack-2x"></i
-                    ></span>
-                    <span class="fa fa-stack"
-                      ><i class="fa fa-star fa-stack-2x"></i
-                    ></span>
-                    <span class="fa fa-stack"
-                      ><i class="fa fa-star fa-stack-2x"></i
-                    ></span>
-                    <span class="fa fa-stack"
-                      ><i class="fa fa-star fa-stack-2x"></i
-                    ></span>
-                    <span class="fa fa-stack"
-                      ><i class="fa fa-star fa-stack-2x"></i
-                    ></span>
-                  </div>
-
-                  <p class="desc">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                    sed do eiusmod tempor incididunt ut labore..
-                  </p>
-                  <p class="price">
-                    <span class="price-new">$45.00</span>
-                    <span class="price-old">$56.00</span>
-                  </p>
-                  <div class="button-group">
-                    <button
-                      class="addToCart"
-                      title="Add to Cart"
-                      type="button"
-                      onclick="cart.add('69');"
-                    >
-                      <i class="fa fa-shopping-cart"></i>
-                      <span>Add to Cart</span>
-                    </button>
-                    <button
-                      class="btn-button wishlist"
-                      type="button"
-                      title="Add to Wish List"
-                      onclick="wishlist.add('69');"
-                    >
-                      <i class="fa fa-heart"></i><span>Add to Wish List</span>
-                    </button>
-                    <button
-                      class="btn-button compare"
-                      type="button"
-                      title="Compare this Product"
-                      onclick="compare.add('69');"
-                    >
-                      <i class="fa fa-refresh"></i
-                      ><span>Compare this Product</span>
-                    </button>
-                  </div>
-                  <!--countdown box-->
-                  <div class="item-time-w">
-                    <div class="item-time">
-                      <div class="item-timer">
-                        <div class="defaultCountdown-30"></div>
-                      </div>
-                    </div>
-                  </div>
-                  <!--end countdown box-->
-                </div>
-              </div>
-            </div>
-          </div>
+         
         </div>
       </div>
     </div>

@@ -23,10 +23,18 @@ import './css/header/header4.css'
 import './css/home4.css'
 import './css/responsive.css'
 
+import "@/js/themejs/application.js"
+import "@/js/themejs/homepage.js"
+import "@/js/themejs/toppanel.js"
+import "@/js/themejs/so_megamenu.js"
+import "@/js/themejs/addtocart.js"
+
 import App from './App.vue'
+
+import router from "./routes";
 
 import { i18n } from './plugins/i18n'
 
 import jquery from 'jquery'
 
-createApp(App).use(i18n).use(jquery).mount('#app')
+createApp(App).use(i18n).use(jquery).use(router).mount('#app')

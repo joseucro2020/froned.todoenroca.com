@@ -26,57 +26,14 @@ const {t} = useI18n()
                     <span class="fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu btn-xs">
-                    <li><a href="#">(€)&nbsp;Euro</a></li>
-                    <li><a href="#">(£)&nbsp;Pounds </a></li>
-                    <li><a href="#">($)&nbsp;US Dollar </a></li>
+                    <li><a href="#">(Bs)&nbsp;Bolivares</a></li>
+                   <!-- <li><a href="#">(£)&nbsp;Pounds </a></li>
+                    <li><a href="#">($)&nbsp;US Dollar </a></li>-->
                   </ul>
                 </form>
               </div>
             </li>
-            <li class="language">
-              <div class="btn-group languages-block">
-                <form
-                  action="index.html"
-                  method="post"
-                  enctype="multipart/form-data"
-                  id="bt-language"
-                >
-                  <a class="btn-link dropdown-toggle" data-toggle="dropdown">
-                    <img
-                      src="../../assets/image/catalog/flags/gb.png"
-                      alt="English"
-                      title="English"
-                    />
-                    <span class="">English</span>
-                    <span class="fa fa-angle-down"></span>
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li>
-                      <a href="index.html"
-                        ><img
-                          class="image_flag"
-                          src="../../assets/image/catalog/flags/gb.png"
-                          alt="English"
-                          title="English"
-                        />
-                        English
-                      </a>
-                    </li>
-                    <li>
-                      <a href="index.html">
-                        <img
-                          class="image_flag"
-                          src="../../assets/image/catalog/flags/ar.png"
-                          alt="Arabic"
-                          title="Arabic"
-                        />
-                        Arabic
-                      </a>
-                    </li>
-                  </ul>
-                </form>
-              </div>
-            </li>
+            
           </ul>
         </div>
         <div
